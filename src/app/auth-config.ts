@@ -2,6 +2,7 @@ import { LogLevel, Configuration, BrowserCacheLocation } from '@azure/msal-brows
 
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1;
 
+// TODO ARC: utilizar los secret de github
 export const b2cPolicies = {
      names: { //Azure user flow or custom policies
          signUpSignIn: "B2C_1_signupsignin1",
@@ -39,8 +40,8 @@ export const msalConfig: Configuration = {
 
 export const protectedResources = { //API paths and scopes
   todoListApi: {
-    endpoint: "http://localhost:5000/api/todolist",
-    scopes: ["https://arcb2c.onmicrosoft.com/api/tasks.read"],
+    endpoint: "https://localhost:5001/game-api/todolist",
+    scopes: ["https://arcb2c.onmicrosoft.com/game-api/tasks.read"],
   },
 }
 export const loginRequest = {

@@ -3,9 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { WebapiComponent } from './webapi/webapi.component';
+import * as Component from './components';
+import * as Service from './services';
 
 import { MsalGuard, MsalInterceptor, MsalModule, MsalRedirectComponent } from '@azure/msal-angular';
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
@@ -23,9 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProfileComponent,
-    WebapiComponent
+    Component.All
   ],
   imports: [
     BrowserModule,
@@ -58,7 +55,8 @@ import { MatTableModule } from '@angular/material/table';
       useClass: MsalInterceptor,
       multi: true
     },
-    MsalGuard
+    MsalGuard,
+    Service.All
   ],
   bootstrap: [AppComponent, MsalRedirectComponent]
 })
